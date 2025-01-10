@@ -1,3 +1,12 @@
+import os
+
+if "VERCEL" in os.environ:
+    import streamlit.web.bootstrap
+    import sys
+
+    sys.argv = ["streamlit", "run", "app.py", "--server.headless", "true", "--server.port", os.environ.get("PORT", "8501")]
+    sys.exit(streamlit.web.bootstrap.run())
+
 import streamlit as st
 
 # Título de la aplicación
